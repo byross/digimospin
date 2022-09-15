@@ -27,7 +27,8 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_1", frames: [[0,0,1563,1563],[0,1565,391,391],[1179,1565,302,302],[393,1565,391,391],[786,1565,391,391]]}
+		{name:"index_atlas_1", frames: [[0,0,1563,1563]]},
+		{name:"index_atlas_2", frames: [[1594,0,391,391],[1594,1179,302,302],[1594,393,391,391],[1594,786,391,391],[0,0,1592,1480]]}
 ];
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
@@ -46,24 +47,28 @@ lib.ssMetadata = [
 	}
 }).prototype = p = new cjs.MovieClip();
 // symbols:
-(lib.CachedBmp_10 = function() {
+(lib.CachedBmp_6 = function() {
 	this.initialize(ss["index_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
-(lib.CachedBmp_9 = function() {
-	this.initialize(ss["index_atlas_1"]);
+(lib.CachedBmp_5 = function() {
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+(lib.CachedBmp_4 = function() {
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
-(lib.CachedBmp_8 = function() {
-	this.initialize(ss["index_atlas_1"]);
+(lib.CachedBmp_3 = function() {
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
-(lib.CachedBmp_7 = function() {
-	this.initialize(ss["index_atlas_1"]);
+(lib.CachedBmp_2 = function() {
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
-(lib.CachedBmp_6 = function() {
-	this.initialize(ss["index_atlas_1"]);
+(lib.CachedBmp_1 = function() {
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 (lib.digimo_1600x160006 = function() {
@@ -95,7 +100,7 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 	// 分離模式
-	this.instance = new lib.CachedBmp_10();
+	this.instance = new lib.CachedBmp_6();
 	this.instance.setTransform(-149.95,-149.95,0.192,0.192);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 	this._renderFirstFrame();
@@ -129,13 +134,13 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 	// Layer_1
-	this.instance = new lib.CachedBmp_6();
+	this.instance = new lib.CachedBmp_2();
 	this.instance.setTransform(0,0,0.5,0.5);
-	this.instance_1 = new lib.CachedBmp_7();
+	this.instance_1 = new lib.CachedBmp_3();
 	this.instance_1.setTransform(-0.05,0,0.5,0.5);
-	this.instance_2 = new lib.CachedBmp_8();
+	this.instance_2 = new lib.CachedBmp_4();
 	this.instance_2.setTransform(22.1,22.05,0.5,0.5);
-	this.instance_3 = new lib.CachedBmp_9();
+	this.instance_3 = new lib.CachedBmp_5();
 	this.instance_3.setTransform(0,0,0.5,0.5);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
 	this._renderFirstFrame();
@@ -188,6 +193,7 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var _this = this;
+		var _do = 0;
 		/*
 		Clicking on the specified symbol instance executes a function.
 		*/
@@ -196,9 +202,15 @@ if (reversed == null) { reversed = false; }
 		Moves the playhead to the specified frame label in the timeline and continues playback from that frame.
 		Can be used on the main timeline or on movie clip timelines.
 		*/
-			setTimeout(function () {
-				_this.the_wheel.stop();
-			}, 1000);
+			if (_do == 0) {
+				setTimeout(function () {
+					_this.the_wheel.stop();
+				}, Math.floor(Math.random() * 1000));
+				_do = 1;
+			} else {
+				_this.the_wheel.play();
+				_do = 0;
+			}
 		});
 	}
 	// actions tween:
@@ -209,30 +221,35 @@ if (reversed == null) { reversed = false; }
 	this.bt_start.setTransform(530.5,548.6,0.54,0.54,0,0,0,97.9,98);
 	new cjs.ButtonHelper(this.bt_start, 0, 1, 2, false, new lib.bt_ball(), 3);
 	this.timeline.addTween(cjs.Tween.get(this.bt_start).wait(1));
+	// info
+	this.instance = new lib.CachedBmp_1();
+	this.instance.setTransform(1010,169.95,0.5,0.5);
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 	// main
 	this.the_wheel = new lib.run_the_wheel();
 	this.the_wheel.name = "the_wheel";
 	this.the_wheel.setTransform(530.45,548.55,2.6043,2.6043,0,0,0,0,0.2);
 	this.timeline.addTween(cjs.Tween.get(this.the_wheel).wait(1));
 	// bg
-	this.instance = new lib.Symbol2("synched",0);
-	this.instance.setTransform(960,541.1,1,1,0,0,0,960,541.1);
-	this.instance.alpha = 0.0586;
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.instance_1 = new lib.Symbol2("synched",0);
+	this.instance_1.setTransform(960,541.1,1,1,0,0,0,960,541.1);
+	this.instance_1.alpha = 0.0586;
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 	this._renderFirstFrame();
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(960,540,960,542.4000000000001);
+p.nominalBounds = new cjs.Rectangle(959.5,541,960.5,541.4000000000001);
 // library properties:
 lib.properties = {
 	id: 'DC1C31EF16DA48D8946DD8E296304353',
-	width: 1920,
-	height: 1080,
+	width: 1919,
+	height: 1082,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/digimo_1600x160006.png?1663058324262", id:"digimo_1600x160006"},
-		{src:"images/index_atlas_1.png?1663058324242", id:"index_atlas_1"}
+		{src:"images/digimo_1600x160006.png?1663227617835", id:"digimo_1600x160006"},
+		{src:"images/index_atlas_1.png?1663227617817", id:"index_atlas_1"},
+		{src:"images/index_atlas_2.png?1663227617817", id:"index_atlas_2"}
 	],
 	preloads: []
 };
@@ -387,11 +404,11 @@ function handleComplete(evt,comp) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1920px; height:1080px">
-		<canvas id="canvas" width="1920" height="1080" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1920px; height:1080px; position: absolute; left: 0px; top: 0px; display: none;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1919px; height:1082px">
+		<canvas id="canvas" width="1919" height="1082" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1919px; height:1082px; position: absolute; left: 0px; top: 0px; display: none;">
 		</div>
 	</div>
-    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1080px; width: 1920px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif?1663058324267 style='vertical-align: middle; max-height: 100%'/></div>
+    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:1082px; width: 1919px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif?1663227617840 style='vertical-align: middle; max-height: 100%'/></div>
 </body>
 </html>
